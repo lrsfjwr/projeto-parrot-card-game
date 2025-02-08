@@ -7,11 +7,7 @@ const imgCartas = ['assets/bobrossparrot.gif',
                    'assets/unicornparrot.gif'];
 
 const deck = [ ];
-
-const fimJogo = [ ];
-
 let pontuacao = 0;
-
 let jogadas = 0;
 let qtdCartas = 0;
 let primeiraCarta = "";
@@ -25,29 +21,26 @@ while (qtdCartas % 2 !== 0 || qtdCartas < 4 || qtdCartas > 14) {
     qtdCartas = Number(prompt("Digite a quantidade de cartas desejadas (entre 4 e 14):"));
 }
 
-
 for (let index = 0; index < qtdCartas/2; index++) {
     
     deck.push(index, index);
    
 }
-
 embaralharCartas();
-
 adicionarCartas(qtdCartas);
 }
-
 informarQtdCartas();
 
 function embaralharCartas(){
     deck.sort(comparador);
     imgCartas.sort(comparador);
-
 }
+
 function comparador() { 
 	return Math.random() - 0.5;
-
 }
+
+//Renderiza as cartas na tela
 function adicionarCartas(qtdCartas){
     const tabuleiro = document.querySelector(".tabuleiro");
     tabuleiro.innerHTML = "";
@@ -64,10 +57,10 @@ function adicionarCartas(qtdCartas){
                   </div>`
         tabuleiro.innerHTML += novaCarta;
               
-    }
-    
+    }   
 }
 
+//Recebe o conteudo após o jogador clicar na carta
 function virarCartas(cartaClicada){
     
     let jaSelecionado = cartaClicada.classList.contains("selecionado");
@@ -75,13 +68,12 @@ function virarCartas(cartaClicada){
     if (jaSelecionado || primeiraCarta !== "" && segundaCarta !== "") {
         return;
     }
-    
+
     cartaClicada.classList.add("selecionado");
 
     if(primeiraCarta === ""){
         primeiraCarta = cartaClicada;
         jogadas++;
-
     }
     else{
         segundaCarta = cartaClicada;
@@ -103,7 +95,6 @@ function compararCartas(){
         pontuacao ++;
         primeiraCarta ="";
         segundaCarta ="";
-
     }
     else{
         setTimeout(desvirarCartas,1000);
@@ -117,7 +108,6 @@ function desvirarCartas(){
 
     primeiraCarta ="";
     segundaCarta = "";
-
 }
 
 function parabenizacao (){
