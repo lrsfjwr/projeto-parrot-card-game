@@ -1,0 +1,95 @@
+*{
+    box-sizing: border-box;
+}
+
+body{
+    background-color: #EEF9BF;
+    font-family: "Roboto", serif;
+}
+
+header{
+    color: #75B79E;
+    margin: 3.5em 0.7em 3.5em 0.7em;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+}
+
+h1{
+    font-size: 3.5rem;
+    font-weight: 700;
+    text-align: center;
+}
+
+main{
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+}
+
+
+
+.tabuleiro{
+    background-color: lightgoldenrodyellow;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin: 0 5em 0 5em;
+}
+
+.carta {
+    width: 150px;
+    height: 200px;
+    margin: 1em;
+    position: relative;
+  }
+  
+  .face {
+    width: 100%;
+    height: 100%;
+    background-color: #A7E9AF;
+    border-radius: 10px;
+    box-shadow: 1px 1px 1px rgba(0,0,0,.3);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    backface-visibility: hidden;
+    transition: all .5s;
+    transform-style: preserve-3d;
+  }
+
+  .verso {
+    transform: rotateY(180deg);
+  }
+  
+  .selecionado .verso {
+    transform: rotateY(0deg);
+  }
+  
+  .selecionado .frente {
+    transform: rotateY(-180deg);
+  }
+
+  img {
+    width: 90%;
+    height: 70%;
+  }
+
+  @media (max-width: 400px) {
+    
+    header{
+        margin: 2.25em 0.7em 2.25em 0.7em;
+    }
+
+    h1 {
+      font-size: 2.25rem;
+    }
+
+    .carta{
+        width:115px;
+        height:150px;
+    }
+  }
